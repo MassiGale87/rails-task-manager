@@ -1,0 +1,17 @@
+<ol>
+  <% @tasks.each do |task| %>
+    <li><%= link_to task.title, task %></li>
+    <% if task.completed %>
+      <p>[x]</p>
+    <% else %>
+      <p>[ ]</p>
+    <% end %>
+  <% end %>
+</ol>
+
+
+<%= link_to "Create new Tasks", tasks_new_path %>
+
+<!-- <%= link_to "Tutti i nomi delle task", tasks_path %> -->
+
+<!-- mettendolink_to sopra con task.title e task_path sto praticamente facendo comparire tutti i nomi delle task ma in questo caso saranno tutti cliccabili perchè la frase "task" si riferisce all'action show come posso vedere dal file routes dove sulla destra c'è as: 'task' (task l'ho deciso io come parola...poteva essere banana) che è una parola chiave che uso per riferirmi al percorso di quel particolare metodo/action. Nel caso in cui non avessi usato la parola chiave avrei dovuto scrivere: task_path(@task) che sta per /tasks/:id. mentre per tasks/:id/edit avrei dovuto scrivere: edit_task_path(@task) -->
